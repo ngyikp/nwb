@@ -92,7 +92,7 @@
     "promise": "8.0.1",
     "whatwg-fetch": "2.0.3",
 
-    "webpack": "3.10.0",
+    "webpack": "4.0.0-alpha.0",
     "autoprefixer": "7.2.1",
     "babel-loader": "7.1.2",
     "case-sensitive-paths-webpack-plugin": "2.1.1",

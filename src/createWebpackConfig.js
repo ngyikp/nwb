@@ -530,6 +530,12 @@ export function createPlugins(
       ...buildConfig.define,
       ...userConfig.define,
     }),
+    // XXX Workaround until loaders migrate away from using this.options
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        context: process.cwd()
+      }
+    })
   ]
 
   if (server) {
@@ -598,10 +604,6 @@ export function createPlugins(
     }))
     if (userConfig.uglify !== false) {
       plugins.push(new optimize.UglifyJsPlugin(createUglifyConfig(userConfig)))
-    }
-    // Use partial scope hoisting/module concatenation
-    if (userConfig.hoisting) {
-      plugins.push(new optimize.ModuleConcatenationPlugin())
     }
   }
 
@@ -789,6 +791,7 @@ export default function createWebpackConfig(
   buildRulesConfig.babel = {options: createBabelConfig(buildBabelConfig, userConfig.babel)}
 
   let webpackConfig = {
+    mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
     module: {
       rules: createRules(server, buildRulesConfig, userWebpackConfig, pluginConfig),
       strictExportPresence: true,
