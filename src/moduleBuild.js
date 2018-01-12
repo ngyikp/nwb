@@ -19,10 +19,10 @@ import {createBanner, createExternals, logGzippedFileSizes} from './webpackUtils
 // ./createKarmaConfig.js; unfortunately Babel doesn't seem to support reusing
 // the same patterns.
 const DEFAULT_BABEL_IGNORE_CONFIG = [
-  '.spec.js',
-  '.test.js',
-  '-test.js',
-  '/__tests__/'
+  '**/*.spec.js',
+  '**/*.test.js',
+  '**/*-test.js',
+  '**/__tests__/'
 ]
 
 /**

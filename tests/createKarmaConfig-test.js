@@ -138,7 +138,7 @@ describe('createKarmaConfig()', () => {
   it('includes polyfill and default test files pattern', () => {
     let config = createKarmaConfig({}, {}, {}, {})
     expect(config.files).toEqual([
-      require.resolve('babel-polyfill/dist/polyfill.js'),
+      require.resolve('@babel/polyfill/dist/polyfill.js'),
       '+(src|test?(s))/**/*+(-test|.spec|.test).js',
     ])
   })

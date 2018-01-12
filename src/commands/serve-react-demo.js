@@ -13,7 +13,9 @@ export default function serveReactDemo(args, cb) {
 
   let config = {
     babel: {
-      presets: [require.resolve('babel-preset-react')],
+      presets: [
+        [require.resolve('@babel/preset-react'), {development: true}]
+      ],
       stage: 1,
     },
     entry: [path.resolve('demo/src/index.js')],
