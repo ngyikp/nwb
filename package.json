@@ -138,7 +138,6 @@
     "presets": [
       "@babel/flow",
       ["@babel/env", {
-        "loose": true,
         "targets": {
           "node": "4.8"
         }
